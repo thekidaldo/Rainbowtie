@@ -2,9 +2,8 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @post.title %>
+  <%= best_in_place_if (@post.user == current_user), @post, :title, :as => :input %>
 </p>
-
 <p>
  <div id="image" class="image">
   <%= image_tag @post.image %>
@@ -12,9 +11,18 @@
   </div>
 </p>
 
+<div id="avatar_form">
+<%= form_for(@post, html: { multipart: true, class: "dropzone"}) do |f|  %>
+  <div class="fallback">
+    <%= f.file_field :image %><br>
+    <%= f.submit "Upload" %>
+  </div>
+<% end %>
+</div>
+
 <p>
   <small>Description:</small>
-  <%= @post.description %>
+<%= best_in_place_if (@post.user == current_user), @post, :description, :as => :textarea %>
 </p>
 
 <p>
@@ -22,5 +30,4 @@
   <%= @post.user.email %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

@@ -7,10 +7,14 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'best_in_place', '~> 3.0.1'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'rails', '~> 5.1.2'
 gem 'paperclip'
+gem 'rails-ujs'
+gem 'jquery-rails'
+gem 'dropzonejs-rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
